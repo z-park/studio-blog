@@ -1,36 +1,41 @@
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+
 version: 2
-jobs:
-  build:
-    # node环境的容器
-    docker:
-      - image: circleci/node:latest
-    # 只有在master更新的时候work
-    filters:
-      branches:
-        only:
-          - master
-    # 工作流程
-    steps:
-      - add_ssh_keys:
-          fingerprints: '60:f4:6f:9f:b3:3a:e5:9c:88:33:3b:ab:34:87:d1:e7'
-      - checkout # check out the code in the project directory
-      - restore_cache: 
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-package
-          command: npm install
-      - run:
-          name: install-hexo-cli
-          command: sudo npm i -g hexo-cli
-      # 缓存node_module
-      - save_cache: 
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run: # git push
-          name: push-github
-          command: |
-            git config --global user.email "986041@gmail.com"
-            git config --global user.name "z-park"
-            hexo deploy
+  jobs:
+    build:
+      # node环境的容器
+      docker:
+        - image: circleci/node:latest
+      # 只有在master更新的时候work
+      # 工作流程
+      steps:
+        - add_ssh_keys:
+            fingerprints: '60:f4:6f:9f:b3:3a:e5:9c:88:33:3b:ab:34:87:d1:e7'
+        - checkout # check out the code in the project directory
+        - restore_cache: 
+            # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+            key: dependency-cache-{{ checksum "package.json" }}
+        - run:
+            name: install-package
+            command: npm install
+        - run:
+            name: install-hexo-cli
+            command: sudo npm i -g hexo-cli
+        # 缓存node_module
+        - save_cache: 
+            key: dependency-cache-{{ checksum "package.json" }}
+            paths:
+              - ./node_modules
+        - run: # git push
+            name: push-github
+            command: |
+              git config --global user.email "986041@gmail.com"
+              git config --global user.name "z-park"
+              hexo deploy
