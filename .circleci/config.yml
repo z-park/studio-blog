@@ -27,4 +27,5 @@ jobs:
       - run: # git push
           name: push-github
           command: |
-            hexo deploy
+            ls
+            # hexo deploy
