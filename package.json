@@ -7,7 +7,9 @@
   },
   "scripts": {
     "deploy": "hexo d",
-    "deploy:heavy": "hexo g -d"
+    "deploy:heavy": "hexo g -d",
+    "dev": "hexo s",
+    "push": "git add -A & git commit -m ${1} & git push"
   },
   "dependencies": {
     "hexo": "^3.9.0",
