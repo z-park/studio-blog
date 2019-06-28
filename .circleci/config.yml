@@ -6,6 +6,8 @@ jobs:
       - image: circleci/node:latest
     # 只有在master更新的时候work
     branches:
+      ignore:
+        - gh-pages
       only:
         - master
     # 工作流程
