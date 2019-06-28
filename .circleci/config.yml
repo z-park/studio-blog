@@ -11,7 +11,7 @@ jobs:
     # 工作流程
     steps:
       - add_ssh_keys:
-          fingerprints: 'b2:42:3e:30:1e:58:9c:d6:40:66:a5:d4:91:8b:2c:dd'
+          fingerprints: '60:f4:6f:9f:b3:3a:e5:9c:88:33:3b:ab:34:87:d1:e7'
       - checkout # check out the code in the project directory
       - restore_cache: 
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
