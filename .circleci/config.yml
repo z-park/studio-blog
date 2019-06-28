@@ -17,8 +17,11 @@ jobs:
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install-npm
+          name: install-package
           command: npm install
+      - run:
+          name: install-hexo-cli
+          command: sudo npm i -g hexo-cli
       # 缓存node_module
       - save_cache: 
           key: dependency-cache-{{ checksum "package.json" }}
@@ -27,6 +30,5 @@ jobs:
       - run: # git push
           name: push-github
           command: |
-            cd node_modules
-            ls
-            # hexo deploy
+            sudo -s
+            hexo deploy
