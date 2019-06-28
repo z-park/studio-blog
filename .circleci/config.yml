@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/node:latest
     # 只有在master更新的时候work
-     branches:
+    branches:
       only:
         - master
     # 工作流程
