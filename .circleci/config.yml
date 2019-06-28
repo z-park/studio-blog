@@ -26,4 +26,5 @@ jobs:
       - run: # git push
           name: push-github
           command: |
+            npm i -g hexo-cli
             hexo deploy
