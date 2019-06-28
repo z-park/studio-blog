@@ -20,11 +20,11 @@ jobs:
           name: install-npm
           command: npm install
       # 缓存node_module
-      - cashe_node_module: 
+      - save_cache: 
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run: # git push
-          name: deploy_gh_pages
-          command:
+          name: push-github
+          command: |
             hexo deploy
