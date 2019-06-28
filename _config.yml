@@ -42,7 +42,9 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
+	
+skip_render: .circleci/*
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
