@@ -30,5 +30,7 @@ jobs:
       - run: # git push
           name: push-github
           command: |
+            git config --global user.name "z-park"
+            git config --global user.email "986041@gmail.com"
             ssh -T git@github.com
-            # hexo deploy
+            hexo deploy
