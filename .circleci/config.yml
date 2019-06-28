@@ -27,5 +27,6 @@ jobs:
       - run: # git push
           name: push-github
           command: |
+            cd node_modules
             ls
             # hexo deploy
