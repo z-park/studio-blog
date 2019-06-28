@@ -79,5 +79,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:z-park/workgroup-blog.git
-  branch: tanbencong #published
+  repo: git@github.com:z-park/gzz-team-blog.git
+  branch: gh-pages #published

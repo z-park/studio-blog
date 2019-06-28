@@ -1,14 +1,29 @@
 version: 2
 jobs:
   build:
+    # node环境的容器
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/node:latest
+    # 只有在master更新的时候work
+    filters:
+      branches:
+        only: master
+    # 工作流程
     steps:
-      - checkout
-      - run: echo "A first hello"
-  build:
-    docker:
-      - image: circleci/ruby:2.4.1
-    steps:
-      - checkout
-      - run: echo "A first hello"   
+      - add_ssh_keys:
+          fingerprints: 'b2:42:3e:30:1e:58:9c:d6:40:66:a5:d4:91:8b:2c:dd'
+      - checkout # check out the code in the project directory
+      - restore_cache: 
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: # git push
+          name: push-github
+          command: |
+            hexo deploy
