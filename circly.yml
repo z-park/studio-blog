@@ -1,25 +1,8 @@
-# Customize the test machine
-machine:
-
-  timezone:
-    America/Los_Angeles # Set the timezone
-
-## 默认依赖
-dependencies:
-  override:
-    - npm install
-    # - npm install -g hexo
-    - npm install -g hexo-cli
-
-## Customize test commands
-test:
- override:
-   - echo "testing"
-
-## Customize deployment commands
-deployment:
-  prod:
-    branch: master
-    commands:
-      - hexo clean
-      - hexo generate
+ version: 2
+ jobs:
+   build:
+     docker:
+       - image: circleci/ruby:2.4.1
+     steps:
+       - checkout
+       - run: echo "A first hello"
