@@ -30,5 +30,4 @@ jobs:
       - run: # git push
           name: push-github
           command: |
-            sudo -s
             hexo deploy
