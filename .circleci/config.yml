@@ -5,7 +5,6 @@ jobs:
     docker:
       - image: circleci/node:latest
     # 只有在master更新的时候work
-    filters:
       branches:
         only: master
     # 工作流程
@@ -30,6 +29,4 @@ jobs:
       - run: # git push
           name: push-github
           command: |
-            git config --global user.name "z-park"
-            git config --global user.email "986041@gmail.com"
             hexo deploy
