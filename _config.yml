@@ -4,7 +4,7 @@
 
 # Site
 title: 工作组博客
-subtitle: 知识交汇于分享
+subtitle: code, life and love.
 description:
 keywords:
 author: workgroup member
@@ -12,7 +12,7 @@ language:
 timezone:
 
 SEOTitle: 工作组博客 | workgroup Blog
-header-img: img/home_banner.jpg
+header-img: img/553c7c46648837.585cdbcc4251a.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
