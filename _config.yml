@@ -3,13 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: 工作组博客
+subtitle: 知识交汇于分享
 description:
 keywords:
-author: John Doe
+author: workgroup member
 language:
 timezone:
+
+SEOTitle: 工作组博客 | workgroup Blog
+header-img: img/home_banner.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
