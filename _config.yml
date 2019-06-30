@@ -13,8 +13,8 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://z-park.github.io/gzz-team-blog
-root: /gzz-team-blog/
+url: https://z-park.github.io/gzz-blog
+root: /gzz-blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
@@ -74,11 +74,11 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: huaxblog
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:z-park/gzz-team-blog.git
+  repo: git@github.com:z-park/gzz-blog.git
   branch: gh-pages #published
