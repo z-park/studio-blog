@@ -11,6 +11,7 @@ author: workgroup member
 language:
 timezone:
 
+disqus_username: fz-workgroup
 disqus:
   enable: true
   shortname: 工作组博客
