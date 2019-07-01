@@ -6,4 +6,5 @@
 # night yilia - https://github.com/litten/hexo-theme-yilia
 highlight_theme: normal
 disqus: true
-disqus_shortname: 工作组博客
+disqus_shortname: fz-workgroup
+disqus_username: fz-workgroup
