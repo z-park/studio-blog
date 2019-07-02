@@ -147,12 +147,13 @@ const promiseB = new Promise((resolve) => resolve(promiseA))  // <----注意看�
 promiseB.then((val) => {
   console.log(val)  // 三秒后打印'a'
 })
-``` 
+```
 
 当promiseB用promiseA为参数调用resolve函数时向名为`PromiseJobs`的`mircotask queue`中[添加](https://tc39.es/ecma262/#sec-promise-resolve-functions)一个`PromiseResolveThenableJob`，这就是状态继承
 
 
 PromiseResolveThenableJob所做的事情也就是上面提到的代码: 
+
 ```javascript
 const promiseB = new Promise((resolve) => resolve(promiseA)) //状态继承
 
@@ -163,12 +164,12 @@ addToMicroTaskQueue(() => PromiseResolveThenableJob())
 // PromiseResolveThenableJob大概做了如下的事情
 const PromiseResolveThenableJob = () => {
   promiseA.then(  // 向mircotask queue中添加PromiseReactionJob
-	resolvePromisB,
-	rejectPromiseB
+    resolvePromisB,
+    rejectPromiseB
   )
 }
-
 ```
+
 当resolvePromiseB执行后， promiseB的状态才变成resolve，也就是B追随A的状态
 
 现在我们回到正题
@@ -235,7 +236,7 @@ promise处于pending状态，promise.then(...)调用，将回调放入promise的
 
 p处于fulfilled状态，p.then(...)调用，向microtask queue插入任务`PromiseReactionJob(tick:a)`
 
-**mircotask[PromiseResolveThenableJob, PromiseReactionJob(tick:a)**
+**mircotask[PromiseResolveThenableJob, PromiseReactionJob(tick:a)]**
 
 执行微任务PromiseResolveThenableJob向microtask queue插入任务`PromiseReactionJob(resolvePromise)`
 执行微任务PromiseReactionJob(tick:a) ---> `输出tick:a` 返回一个promise向microtask queue插入任务`PromiseReactionJob(tick:b)`
@@ -256,8 +257,7 @@ p处于fulfilled状态，p.then(...)调用，向microtask queue插入任务`Prom
 V8团队的博客中提到通过[promiseResolve](https://tc39.es/ecma262/#sec-promise-resolve)来替换resolvePrmise操作
 ![await-new-step-2](http://qiniu.enboest.com/20190702233929.png)
 
-也就是
-将const promise = new Promise(res => res(p)) 替换成Promise.resolve(p)
+也就是将const promise = new Promise(res => res(p)) 替换成Promise.resolve(p)
 根据[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)文档， 当 p 是一个 promise 时，Promise.resolve(p)直接返回 p，而这是大概率事件。
 
 ![/await-overhead-removed](http://qiniu.enboest.com/20190702234435.png)
