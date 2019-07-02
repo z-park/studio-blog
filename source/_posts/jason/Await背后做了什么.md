@@ -108,7 +108,7 @@ const PromiseResolveThenableJob = () => {
 ## Tasks和microtasks
 >JavaScript 中有 task 和 microtask。task 用于处理 I/O 和计时器等事件，每次执行一个。microtask 为 async/await 和 Promise 实现延迟执行，并在每个 task 结束时执行。在每一个事件循环之前，microtask 队列总是被清空（执行）。
 
-![task和microtasks](http://qiniu.enboest.com/20190702183522.png)
+![task和microtasks](http://qiniu.enboest.com/20190703002312.png)
 
 > 有些地方将Task称为MacroTask,将MicroTask称为Jobs。
 
